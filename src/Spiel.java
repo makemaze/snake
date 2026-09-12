@@ -123,7 +123,7 @@ public class Spiel extends JPanel implements Runnable, KeyListener {
                 }
             }
             try {
-                Thread.sleep(20);
+                Thread.sleep(Wurm.WAIT);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

@@ -5,6 +5,7 @@ import java.util.List;
 public class Wurm {
 
     static int DICKE = 3;
+    static int WAIT = 15;
 
     public Richtung richtung;
     private int posX, posY;
@@ -27,21 +28,21 @@ public class Wurm {
     }
 
     public Segment bewegeUndErstelleWurmkopfSegment() {
-       
+
         int neuePosX = this.posX + richtung.dx * DICKE;
         int neuePosY = this.posY + richtung.dy * DICKE;
-        
-        if (neuePosX > Spiel.BREITE) {
+
+        if (neuePosX > Spiel.BREITE - Wurm.DICKE) {
             neuePosX = 1;
         }
         if (neuePosX < 0) {
-            neuePosX = Spiel.BREITE;
+            neuePosX = Spiel.BREITE-Wurm.DICKE-1;
         }
-        if (neuePosY > Spiel.HOEHE) {
+        if (neuePosY > Spiel.HOEHE- Wurm.DICKE) {
             neuePosY = 1;
         }
         if (neuePosY < 0) {
-            neuePosY = Spiel.HOEHE;
+            neuePosY = Spiel.HOEHE-Wurm.DICKE;
         }
         Segment kopfSegment = new Segment(neuePosX, neuePosY);
         if (!kreuztDerWurmSichSelbst(kopfSegment)) {
